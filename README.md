@@ -25,12 +25,17 @@ Set of tests will test the underlying business logic of the application as well 
 
 ## JS
 
-js/app.js file is the main file, actual RSS feed reader application. It uses the Google
- * Feed Reader API to grab RSS feeds as JSON object we can make
- * use of. It also uses the Handlebars templating library and
+js/app.js file is the main file, actual RSS feed reader application. It uses: 
+ * the Google Feed Reader API to grab RSS feeds as JSON object we can make use of,
+ * Handlebars templating library,
  * jQuery.
+ 
+jasmine/spec/feedreader.js is the spec file that Jasmine will read and contains all of the tests that will be run against the application.
 
 # CSS
-All the elements are styled by the stylesheet in style.css file. Additional linked styles:
 
-font-awesome.css (https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css) is used for hearts symbols.
+All the elements are styled by the stylesheet in css/style.css file. Additional linked styles:
+
+* Google fonts(https://fonts.googleapis.com/css?family=Roboto:400,100,300,700")
+* css/normalize.css
+* css/icomoon.css
