@@ -96,34 +96,34 @@ $(function() {
     });
   });
 
-  /* Loop through items in allFeeds and test */
+  /* Test suite "New Feed Selection" */
+  describe('New Feed Selection', function() {
 
-  for (let i = 1; i < allFeeds.length; i++) {
-    /* Test suite "New Feed Selection" */
-    describe('New Feed Selection (feed no. ' + i + ')', function() {
+    /* Test that ensures when a new feed is loaded
+    /* by the loadFeed function that the content actually changes.
+    /* Edit allFeeds in app.js to have same URL for two different Feeds to get a test failed
+    */
 
-      /* Test that ensures when a new feed is loaded
-      /* by the loadFeed function that the content actually changes.
-      /* Edit allFeeds in app.js to have same URL for two different Feeds to get a test failed
-      */
+    let feedAfterFirstLoad, feedAfterSecondLoad;
 
-      //variables to store an entry of the first elment in feed
-      let currentFeedEntry, nextFeedEntry;
+    beforeEach(function(done) {
+      loadFeed(0, function () {
+         //content of feed container
+         // you can use jQuery .html method to do that for You
+         feedAfterFirstLoad = $('.feed').html();
+         loadFeed(1, function () {
+             // get content of feed container again
+             feedAfterSecondLoad = $('.feed').html();
+             done();
+         });
+       });
+     });
 
-      beforeEach(function(done) {
-        //Current feed's first entry html
-        currentFeedEntry = $('.entry').html();
-        //Load next feed
-        loadFeed(i, done);
-      });
+     it('When a new feed is loaded by the loadFeed function the content actually changes', function(done) {
+       //We expect feeds to be different
+       expect(feedAfterFirstLoad).not.toEqual(feedAfterSecondLoad);
+       done();
+     })
+  });
 
-      it('When a new feed is loaded by the loadFeed function the content actually changes', function(done) {
-        //Next feed's first entry html
-        nextFeedEntry = $('.entry').html();
-        //We expect first entries in the previous and current feeds to be different
-        expect(currentFeedEntry).not.toContain(nextFeedEntry);
-        done();
-      });
-    });
-  }
 }());
