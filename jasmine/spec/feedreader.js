@@ -107,23 +107,23 @@ $(function() {
     let feedAfterFirstLoad, feedAfterSecondLoad;
 
     beforeEach(function(done) {
-      loadFeed(0, function () {
-         //content of feed container
-         // you can use jQuery .html method to do that for You
-         feedAfterFirstLoad = $('.feed').html();
-         loadFeed(1, function () {
-             // get content of feed container again
-             feedAfterSecondLoad = $('.feed').html();
-             done();
-         });
-       });
-     });
+      loadFeed(0, function() {
+        //content of feed container
+        // you can use jQuery .html method to do that for You
+        feedAfterFirstLoad = $('.feed').html();
+        loadFeed(1, function() {
+          // get content of feed container again
+          feedAfterSecondLoad = $('.feed').html();
+          done();
+        });
+      });
+    });
 
-     it('When a new feed is loaded by the loadFeed function the content actually changes', function(done) {
-       //We expect feeds to be different
-       expect(feedAfterFirstLoad).not.toEqual(feedAfterSecondLoad);
-       done();
-     })
+    it('When a new feed is loaded by the loadFeed function the content actually changes', function(done) {
+      //We expect feeds to be different
+      expect(feedAfterFirstLoad).not.toEqual(feedAfterSecondLoad);
+      done();
+    });
   });
 
 }());
