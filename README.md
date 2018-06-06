@@ -5,7 +5,7 @@ A web-based application that reads RSS feeds. Along with tests with [Jasmine](ht
 
 ## Starting application
 
-Open following [URL](https://skozubek.github.io/FeedReader/) to start the Fead Reader and see the output of provided tests.
+Open following [URL](https://skozubek.github.io/FeedReader/) to start the Feed Reader and see the output of provided tests.
 
 # Tests
 
