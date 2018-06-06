@@ -91,7 +91,7 @@ $(function() {
     });
 
     it('Feed should contain at least one entry', function(done) {
-      expect($('.feed').children().length).toBeGreaterThan(0);
+      expect($('.feed .entry').length).toBeGreaterThan(0);
       done();
     });
   });
